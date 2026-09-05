@@ -4,116 +4,394 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Air Quality Prediction System</title>
+    <title>AirSense AI | Air Quality Prediction</title>
 
     <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
+<div class="background-effects">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+</div>
+
 <div class="container">
 
-    <header>
-        <h1>🌍 Air Quality Prediction System</h1>
-        <p>Machine Learning Based AQI Prediction & Health Alert System</p>
+    <!-- HEADER -->
+    <header class="hero">
+
+        <div class="status">
+            <span class="status-dot"></span>
+            AI SYSTEM ONLINE
+        </div>
+
+        <h1>
+            <span class="gradient-text">AirSense AI</span>
+        </h1>
+
+        <h2>Air Quality Prediction System</h2>
+
+        <p>
+            Machine Learning powered air quality analysis,
+            AQI prediction and health recommendations.
+        </p>
+
     </header>
 
-    <div class="card">
 
-        <h2>Enter Air Quality Data</h2>
+    <!-- INPUT SECTION -->
+    <section class="card input-card">
+
+        <div class="section-heading">
+            <div class="section-icon">🌍</div>
+
+            <div>
+                <h2>Air Quality Parameters</h2>
+                <p>Enter environmental measurements to predict AQI</p>
+            </div>
+        </div>
+
 
         <div class="form-grid">
 
+            <!-- CO -->
             <div class="input-box">
-                <label>CO</label>
-                <input type="number" id="CO" step="any" placeholder="Example: 2.0">
+                <div class="input-label">
+                    <span class="input-icon">💨</span>
+                    <label for="CO">Carbon Monoxide</label>
+                </div>
+
+                <div class="input-wrapper">
+                    <input
+                        type="number"
+                        id="CO"
+                        step="any"
+                        placeholder="2.0"
+                    >
+                    <span class="unit">mg/m³</span>
+                </div>
             </div>
 
+
+            <!-- NOx -->
             <div class="input-box">
-                <label>NOx</label>
-                <input type="number" id="NOx" step="any" placeholder="Example: 150">
+                <div class="input-label">
+                    <span class="input-icon">🧪</span>
+                    <label for="NOx">Nitrogen Oxides</label>
+                </div>
+
+                <div class="input-wrapper">
+                    <input
+                        type="number"
+                        id="NOx"
+                        step="any"
+                        placeholder="150"
+                    >
+                    <span class="unit">µg/m³</span>
+                </div>
             </div>
 
+
+            <!-- NO2 -->
             <div class="input-box">
-                <label>NO₂</label>
-                <input type="number" id="NO2" step="any" placeholder="Example: 80">
+                <div class="input-label">
+                    <span class="input-icon">🔬</span>
+                    <label for="NO2">Nitrogen Dioxide</label>
+                </div>
+
+                <div class="input-wrapper">
+                    <input
+                        type="number"
+                        id="NO2"
+                        step="any"
+                        placeholder="80"
+                    >
+                    <span class="unit">µg/m³</span>
+                </div>
             </div>
 
+
+            <!-- BENZENE -->
             <div class="input-box">
-                <label>Benzene (C₆H₆)</label>
-                <input type="number" id="C6H6" step="any" placeholder="Example: 5">
+                <div class="input-label">
+                    <span class="input-icon">⚗️</span>
+                    <label for="C6H6">Benzene (C₆H₆)</label>
+                </div>
+
+                <div class="input-wrapper">
+                    <input
+                        type="number"
+                        id="C6H6"
+                        step="any"
+                        placeholder="5"
+                    >
+                    <span class="unit">µg/m³</span>
+                </div>
             </div>
 
+
+            <!-- TEMPERATURE -->
             <div class="input-box">
-                <label>Temperature (°C)</label>
-                <input type="number" id="temperature" step="any" placeholder="Example: 20">
+                <div class="input-label">
+                    <span class="input-icon">🌡️</span>
+                    <label for="temperature">Temperature</label>
+                </div>
+
+                <div class="input-wrapper">
+                    <input
+                        type="number"
+                        id="temperature"
+                        step="any"
+                        placeholder="20"
+                    >
+                    <span class="unit">°C</span>
+                </div>
             </div>
 
+
+            <!-- HUMIDITY -->
             <div class="input-box">
-                <label>Humidity (%)</label>
-                <input type="number" id="humidity" step="any" placeholder="Example: 50">
+                <div class="input-label">
+                    <span class="input-icon">💧</span>
+                    <label for="humidity">Humidity</label>
+                </div>
+
+                <div class="input-wrapper">
+                    <input
+                        type="number"
+                        id="humidity"
+                        step="any"
+                        placeholder="50"
+                    >
+                    <span class="unit">%</span>
+                </div>
             </div>
 
+
+            <!-- ABSOLUTE HUMIDITY -->
             <div class="input-box">
-                <label>Absolute Humidity</label>
-                <input type="number" id="AH" step="any" placeholder="Example: 1.0">
+                <div class="input-label">
+                    <span class="input-icon">💦</span>
+                    <label for="AH">Absolute Humidity</label>
+                </div>
+
+                <div class="input-wrapper">
+                    <input
+                        type="number"
+                        id="AH"
+                        step="any"
+                        placeholder="1.0"
+                    >
+                    <span class="unit">g/m³</span>
+                </div>
             </div>
 
         </div>
 
-        <button onclick="predictAQI()">🔍 Predict AQI</button>
 
-        <button class="reset-btn" onclick="resetForm()">↻ Reset</button>
+        <!-- BUTTONS -->
+        <div class="button-group">
 
-    </div>
+            <button class="predict-btn" onclick="predictAQI()" id="predictButton">
+                <span class="button-icon">✦</span>
+                <span id="buttonText">Predict AQI</span>
+            </button>
+
+            <button class="reset-btn" onclick="resetForm()">
+                ↻ Reset
+            </button>
+
+        </div>
+
+    </section>
 
 
     <!-- RESULT -->
+    <section id="result" class="result hidden">
 
-    <div id="result" class="result hidden">
+        <div class="result-header">
+            <div>
+                <span class="result-label">PREDICTION RESULT</span>
+                <h2>Air Quality Index</h2>
+            </div>
 
-        <h2>Predicted Air Quality Index</h2>
-
-        <div id="aqiValue">--</div>
-
-        <div id="category">--</div>
-
-        <div id="healthAlert">
-            --
+            <div class="result-status">
+                ● ANALYZED
+            </div>
         </div>
 
-    </div>
+
+        <div class="result-content">
+
+            <!-- AQI NUMBER -->
+            <div class="aqi-display">
+
+                <div class="aqi-circle">
+
+                    <div class="aqi-inner">
+
+                        <span class="aqi-small">AQI</span>
+
+                        <div id="aqiValue">--</div>
+
+                    </div>
+
+                </div>
+
+            </div>
 
 
-    <!-- AQI INFORMATION -->
+            <!-- RESULT INFORMATION -->
+            <div class="result-info">
 
-    <div class="info-card">
+                <span class="category-label">
+                    AIR QUALITY STATUS
+                </span>
 
-        <h2>AQI Health Information</h2>
+                <div id="category" class="category">
+                    --
+                </div>
 
-        <div class="aqi-table">
+                <div class="health-box">
 
-            <div>0 – 50</div>
-            <div>Good</div>
+                    <div class="health-icon">
+                        ❤️
+                    </div>
 
-            <div>51 – 100</div>
-            <div>Satisfactory</div>
+                    <div>
+                        <h3>Health Recommendation</h3>
 
-            <div>101 – 200</div>
-            <div>Moderate</div>
+                        <p id="healthAlert">
+                            --
+                        </p>
+                    </div>
 
-            <div>201 – 300</div>
-            <div>Poor</div>
+                </div>
 
-            <div>301 – 400</div>
-            <div>Very Poor</div>
-
-            <div>401 – 500</div>
-            <div>Severe</div>
+            </div>
 
         </div>
 
-    </div>
+    </section>
+
+
+    <!-- AQI SCALE -->
+    <section class="card scale-card">
+
+        <div class="section-heading">
+
+            <div class="section-icon">
+                📊
+            </div>
+
+            <div>
+                <h2>AQI Health Scale</h2>
+                <p>Understand what your predicted AQI means</p>
+            </div>
+
+        </div>
+
+
+        <div class="aqi-scale">
+
+            <div class="scale-item good">
+                <div class="scale-number">0–50</div>
+                <strong>Good</strong>
+                <span>Safe air quality</span>
+            </div>
+
+            <div class="scale-item satisfactory">
+                <div class="scale-number">51–100</div>
+                <strong>Satisfactory</strong>
+                <span>Acceptable air</span>
+            </div>
+
+            <div class="scale-item moderate">
+                <div class="scale-number">101–200</div>
+                <strong>Moderate</strong>
+                <span>Some health concern</span>
+            </div>
+
+            <div class="scale-item poor">
+                <div class="scale-number">201–300</div>
+                <strong>Poor</strong>
+                <span>Health effects possible</span>
+            </div>
+
+            <div class="scale-item very-poor">
+                <div class="scale-number">301–400</div>
+                <strong>Very Poor</strong>
+                <span>Health alert</span>
+            </div>
+
+            <div class="scale-item severe">
+                <div class="scale-number">401–500</div>
+                <strong>Severe</strong>
+                <span>Serious health risk</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FEATURES -->
+    <section class="features">
+
+        <div class="feature-card">
+            <div class="feature-icon">🤖</div>
+            <h3>Machine Learning</h3>
+            <p>
+                Random Forest based prediction model analyzes
+                environmental parameters.
+            </p>
+        </div>
+
+
+        <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>Instant Prediction</h3>
+            <p>
+                Get your predicted AQI and air quality category
+                within seconds.
+            </p>
+        </div>
+
+
+        <div class="feature-card">
+            <div class="feature-icon">❤️</div>
+            <h3>Health Alerts</h3>
+            <p>
+                Receive easy-to-understand recommendations based
+                on air quality levels.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <div class="footer-logo">
+            🌿 AirSense AI
+        </div>
+
+        <p>
+            Machine Learning Based Air Quality Prediction & Health Alert System
+        </p>
+
+        <span>
+            © 2026 AirSense AI • Smart Environment Monitoring
+        </span>
+
+    </footer>
 
 </div>
 
@@ -143,107 +421,202 @@ async function predictAQI() {
         AH: parseFloat(
             document.getElementById("AH").value
         )
+
     };
 
 
+    // Validate inputs
     if (Object.values(data).some(value => isNaN(value))) {
 
-        alert("Please enter all values.");
+        alert("Please enter all air quality parameters.");
 
         return;
     }
 
 
+    const button = document.getElementById("predictButton");
+    const buttonText = document.getElementById("buttonText");
+
+    button.disabled = true;
+    buttonText.innerText = "Analyzing...";
+
+
     try {
 
-        const response = await fetch(
-            "/predict",
-            {
-                method: "POST",
+        const response = await fetch("/predict", {
 
-                headers: {
-                    "Content-Type": "application/json"
-                },
+            method: "POST",
 
-                body: JSON.stringify(data)
-            }
-        );
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify(data)
+
+        });
+
+
+        if (!response.ok) {
+
+            throw new Error("Prediction request failed.");
+
+        }
 
 
         const result = await response.json();
 
 
+        // Show result
         document
             .getElementById("result")
             .classList.remove("hidden");
 
 
-        document.getElementById("aqiValue").innerText =
-            result.AQI;
+        // AQI value
+        animateAQI(result.AQI);
 
 
+        // Category
         document.getElementById("category").innerText =
             result.category;
 
 
+        // Health recommendation
         showHealthAlert(result.AQI);
 
 
+        // Apply AQI color
         setAQIColor(result.AQI);
+
+
+        // Scroll to result
+        setTimeout(() => {
+
+            document
+                .getElementById("result")
+                .scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+
+        }, 200);
+
 
     }
 
     catch (error) {
 
+        console.error(error);
+
         alert(
-            "Unable to connect to the prediction server. Make sure Flask is running."
+            "Unable to connect to the prediction server."
         );
 
-        console.error(error);
+    }
+
+    finally {
+
+        button.disabled = false;
+
+        buttonText.innerText = "Predict AQI";
 
     }
 
 }
 
 
+function animateAQI(target) {
+
+    const element =
+        document.getElementById("aqiValue");
+
+    let current = 0;
+
+    const duration = 1000;
+
+    const startTime = performance.now();
+
+
+    function update(time) {
+
+        const progress =
+            Math.min((time - startTime) / duration, 1);
+
+        current =
+            target * progress;
+
+        element.innerText =
+            current.toFixed(0);
+
+
+        if (progress < 1) {
+
+            requestAnimationFrame(update);
+
+        }
+
+        else {
+
+            element.innerText =
+                Number(target).toFixed(2);
+
+        }
+
+    }
+
+    requestAnimationFrame(update);
+
+}
+
+
 function setAQIColor(aqi) {
 
-    const resultBox =
+    const result =
         document.getElementById("result");
+
+    result.classList.remove(
+        "good",
+        "satisfactory",
+        "moderate",
+        "poor",
+        "very-poor",
+        "severe"
+    );
+
 
     if (aqi <= 50) {
 
-        resultBox.className = "result good";
+        result.classList.add("good");
 
     }
 
     else if (aqi <= 100) {
 
-        resultBox.className = "result satisfactory";
+        result.classList.add("satisfactory");
 
     }
 
     else if (aqi <= 200) {
 
-        resultBox.className = "result moderate";
+        result.classList.add("moderate");
 
     }
 
     else if (aqi <= 300) {
 
-        resultBox.className = "result poor";
+        result.classList.add("poor");
 
     }
 
     else if (aqi <= 400) {
 
-        resultBox.className = "result very-poor";
+        result.classList.add("very-poor");
 
     }
 
     else {
 
-        resultBox.className = "result severe";
+        result.classList.add("severe");
 
     }
 
@@ -287,14 +660,14 @@ function showHealthAlert(aqi) {
     else if (aqi <= 400) {
 
         alertBox.innerText =
-            "Very poor air quality. Limit outdoor activities.";
+            "Very poor air quality. Limit outdoor activities and take precautions.";
 
     }
 
     else {
 
         alertBox.innerText =
-            "Severe air pollution. Avoid outdoor exposure and take precautions.";
+            "Severe air pollution. Avoid outdoor exposure and take necessary precautions.";
 
     }
 
@@ -305,14 +678,29 @@ function resetForm() {
 
     document
         .querySelectorAll("input")
-        .forEach(input => input.value = "");
+        .forEach(input => {
+            input.value = "";
+        });
 
 
-    document
-        .getElementById("result")
-        .className = "result hidden";
+    const result =
+        document.getElementById("result");
+
+    result.className =
+        "result hidden";
+
+
+    document.getElementById("aqiValue").innerText =
+        "--";
+
+    document.getElementById("category").innerText =
+        "--";
+
+    document.getElementById("healthAlert").innerText =
+        "--";
 
 }
+
 
 </script>
 
